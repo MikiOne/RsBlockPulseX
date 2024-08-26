@@ -32,12 +32,16 @@ async fn main() -> Result<()> {
         .topic1(token_topics.to_vec())
         .topic2(token_topics.to_vec())
         .from_block(0);
+    println!("filter: {:?}", filter);
     let logs = client.get_logs(&filter).await?;
     println!("{} pools found!", logs.iter().len());
     for log in logs.iter() {
         let token0 = Address::from(log.topics[1]);
         let token1 = Address::from(log.topics[2]);
         let fee_tier = U256::from_big_endian(&log.topics[3].as_bytes()[29..32]);
+        // data: 0x
+        // 000000000000000000000000000000000000000000000000000000000000(29)00c8(31)
+        // 00000000000000000000000028(44)18ea851dcfaeeb4633fc8aae08b7063d32e4f5(63)
         let tick_spacing = U256::from_big_endian(&log.data[29..32]);
         let pool = Address::from(&log.data[44..64].try_into()?);
         println!(
