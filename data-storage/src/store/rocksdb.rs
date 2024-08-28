@@ -4,17 +4,17 @@ use rocksdb::{DB, Options, WriteBatch};
 use crate::error::Error;
 use crate::store::{Batch, Store};
 
-struct RocksDBStore {
+struct RocksdbStore {
     db: Arc<DB>,
 }
 
-impl Store for RocksDBStore {
-    type Batch = RocksDBBatch;
+impl Store for RocksdbStore {
+    type Batch = RocksdbBatch;
     type Opts = Options;
 
     fn new<P: AsRef<Path>>(opts: &Self::Opts, path: P) -> Result<Self, Error> {
         let db = Arc::new(DB::open(opts, path)?);
-        Ok(RocksDBStore { db })
+        Ok(RocksdbStore { db })
     }
 
     fn default_options() -> Self::Opts {
@@ -36,25 +36,25 @@ impl Store for RocksDBStore {
     }
 
     fn batch(&self) -> Self::Batch {
-        RocksDBBatch {
+        RocksdbBatch {
             db: Arc::clone(&self.db),
             wb: WriteBatch::default(),
         }
     }
 }
 
-struct RocksDBBatch {
+struct RocksdbBatch {
     db: Arc<DB>,
     wb: WriteBatch,
 }
 
-impl Batch for RocksDBBatch {
+impl Batch for RocksdbBatch {
     fn put<K: AsRef<[u8]>, V: AsRef<[u8]>>(&mut self, key: K, value: V) {
         self.wb.put(key, value);
     }
 
-    fn del<K: AsRef<[u8]>>(&mut self, key: K) -> Result<(), Error> {
-        Ok(self.wb.delete(key)?)
+    fn del<K: AsRef<[u8]>>(&mut self, key: K) {
+        self.wb.delete(key);
     }
 
     fn commit(self) -> Result<(), Error> {

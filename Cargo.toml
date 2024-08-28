@@ -7,6 +7,9 @@ edition = "2021"
 members = [
     "block-pulse",
     "data-storage",
+    "mq/rocket-mq",
 ]
 
 [dependencies]
+rocketmq-remoting = "0.2.0"
+rocketmq-runtime = "0.2.0"

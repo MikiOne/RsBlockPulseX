@@ -7,7 +7,10 @@ pub(crate) trait Store {
     type Batch: Batch;
     type Opts;
 
-    fn new<P: AsRef<Path>>(opts: &Self::Opts, path: P) -> Result<Self, Error>;
+    fn new<P, >(opts: &Self::Opts, path: P) -> Result<Self, Error>
+    where
+        P: AsRef<Path>,
+        Self: Sized;
 
     fn default_options() -> Self::Opts;
 
@@ -26,7 +29,7 @@ pub(crate) trait Store {
 pub(crate) trait Batch {
     fn put<K: AsRef<[u8]>, V: AsRef<[u8]>>(&mut self, key: K, value: V);
 
-    fn del<K: AsRef<[u8]>>(&mut self, key: K) -> Result<(), Error>;
+    fn del<K: AsRef<[u8]>>(&mut self, key: K);
 
-    fn commit(&self) -> Result<(), Error>;
+    fn commit(self) -> Result<(), Error>;
 }

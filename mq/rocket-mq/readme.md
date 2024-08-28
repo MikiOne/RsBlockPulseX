@@ -1,0 +1,8 @@
+- client: 
+  - https://github.com/apache/rocketmq-clients/tree/master/rust
+- demo:
+  - https://github.com/TencentCloud/rocketmq-demo/tree/main/rust/rocketmq5
+- docker:
+  - https://rocketmq.apache.org/zh/docs/4.x/quickstart/02quickstartWithDocker/
+- rocketmq-rust
+  - client: https://github.com/mxsm/rocketmq-rust/blob/main/rocketmq-client/examples/producer/simple_producer.rs
