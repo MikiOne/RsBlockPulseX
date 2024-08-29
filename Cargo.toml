@@ -7,6 +7,7 @@ edition = "2021"
 members = [
     "block-pulse",
     "data-storage",
+    "mq/rocket-mq",
 ]
 
 [dependencies]

@@ -1,0 +1,9 @@
+[package]
+name = "rocket-mq"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+rocketmq = "0.1.2"
+time = { version = "0.3.36", features = ["local-offset"] }
+tokio = { version = "1.39.3", features = ["full"] }
