@@ -1,0 +1,12 @@
+[package]
+name = "tron-rs"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+heliosphere = "0.3.1"
+
+[dev-dependencies]
+tokio = { version = "1.40.0", features = ["full"] }
+ethabi = "18.0.0"
+rand = "0.8.5"
