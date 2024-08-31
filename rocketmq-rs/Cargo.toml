@@ -1,0 +1,8 @@
+[package]
+name = "rocketmq-rs"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+rocketmq = { git = "https://github.com/messense/rocketmq-rs.git", branch = "master" }
+tokio = { version = "1.40.0", features = ["full"] }

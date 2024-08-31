@@ -1,0 +1,4 @@
+- cpp-client rust封装
+  - 本库是对 RocketMQ-Client-cpp CAPI的封装: 
+  - https://github.com/ZB94/rocketmq-client-rs
+- 
