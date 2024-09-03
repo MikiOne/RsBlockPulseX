@@ -5,7 +5,7 @@ use ethers::prelude::*;
 use reqwest::header::{HeaderMap, HeaderValue};
 use std::sync::Arc;
 
-const RPC_URL: &str = "https://eth.llamarpc.com";
+const RPC_URL: &str = "http://192.168.101.45:8545";
 
 #[tokio::main]
 async fn main() -> eyre::Result<()> {
@@ -35,8 +35,8 @@ async fn create_instance() -> eyre::Result<()> {
     headers.insert("X-MY-HEADERS", HeaderValue::from_static("Some value"));
 
     let http_client = reqwest::Client::builder()
-        .default_headers(headers)
-        .proxy(reqwest::Proxy::all("http://proxy.example.com:8080")?)
+        // .default_headers(headers)
+        // .proxy(reqwest::Proxy::all("http://proxy.example.com:8080")?)
         .build()?;
 
     let _provider = Http::new_with_client(url, http_client);

@@ -292,6 +292,7 @@ name = "block-pulse"
 version = "0.1.0"
 dependencies = [
  "ethers",
+ "ethers-middleware",
  "eyre",
  "reqwest",
  "serde",

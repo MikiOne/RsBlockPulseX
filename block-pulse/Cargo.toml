@@ -6,6 +6,7 @@ edition = "2021"
 [dependencies]
 ethers = { version = "2.0.14", features = ["abigen", "rustls", "ws", "ethers-solc"] }
 tokio = { version = "1.38.0", features = ["macros", "rt-multi-thread"] }
+ethers-middleware = { version = "2.0.14" }
 
 eyre = "0.6.12"
 serde = { version = "1.0.203", features = ["derive"] }
