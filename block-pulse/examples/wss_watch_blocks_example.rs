@@ -6,7 +6,7 @@ async fn main() -> Result<()> {
     let provider =
         Provider::<Ws>::connect("wss://mainnet.infura.io/ws/v3/c60b0bb42f8a4c6481ecd229eddaca27")
             .await?;
-    let mut stream = provider.subscribe_blocks().await?.take(10);
+    let mut stream = provider.subscribe_blocks().await?.take(2);
     while let Some(block) = stream.next().await {
         println!(
             "Ts: {:?}, block number: {} -> {:?}",
