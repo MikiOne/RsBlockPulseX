@@ -1,0 +1,17 @@
+{
+  "address": "0x6192f179dfc7cb74463b9158772f246c570150ac",
+  "topics": [
+    "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+    "0x0000000000000000000000000dfd05117a0d8f36b861ee01fbf6fc7d7db1cba1",
+    "0x00000000000000000000000005c296d0f6e7dcf2e835552f7e676b74671b51f7"
+  ],
+  "data": "0x0000000000000000000000000000000000000000000000069099a0627bce0000",
+  "block_hash": "0x10947429553d0cd5c5f3e2ab4fa9e99584590132cb5ffc04cee07108c48bdeaa",
+  "block_number": 5370,
+  "transaction_hash": "0x642f4efbee7991473d0e1d8fc77d19517266a8d962cc2d34699104d25e08cbce",
+  "transaction_index": 0,
+  "log_index": 0,
+  "transaction_log_index": null,
+  "log_type": null,
+  "removed": false
+}
